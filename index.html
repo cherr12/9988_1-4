@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자가 밴드</title>
+    <!-- 부트스트랩 CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .chat-bubble {
+            max-width: 100%;
+            border-radius: 20px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
+            animation: slide-in 0.5s forwards; /* "forwards" 키워드가 애니메이션 유지를 위한 핵심 부분입니다 */
+            opacity: 0; /* 처음 상태의 투명도는 0으로, 보이지 않게 설정 */
+        }
+    
+        .chat-bubble-left {
+            background: #e9e9eb;
+        }
+    
+        .chat-bubble-right {
+            background: #0b93f6;
+            color: white;
+        }
+    
+        @keyframes slide-in {
+            0% {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    
+        .hidden {
+            display: none;
+        }
+    </style>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script>
+        function showChat(id) {
+    var chatContent = document.querySelector(`#chat-${id}`).innerHTML;
+    var modalBody = document.getElementById('chatModalBody');
+
+    // 모달의 내용을 현재 선택된 채팅 내용으로 설정합니다.
+    modalBody.innerHTML = chatContent;
+
+    // 모달을 표시합니다.
+    $('#chatModal').modal('show');
+}
+    </script>
+</head>
+<body>
+    <!-- 뒤로가기 버튼 -->
+    <div class="container mt-3">
+        <a href="file:///Users/hale/Desktop/test%20file/index1/index.html" class="btn btn-light" role="button"><</a> <!-- '메인페이지URL'을 메인 페이지의 URL로 변경해주세요. -->
+        <!-- 혹은 이전 페이지로 돌아가는 기능을 원한다면, 아래 코드를 사용하세요. -->
+        <!-- <button onclick="history.back()" class="btn btn-light"><</button> -->
+    </div>
+
+<div class="container mt-5">
+    <!-- 리스트 항목들 -->
+    <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action" onclick="showChat(1);">갤럭시워치 사용자인데 알려준 대로 했는데 안돼요.</a>
+        <a href="#" class="list-group-item list-group-item-action" onclick="showChat(2);">밴드 찾기 중에 앱이 자동으로 꺼져요.</a>
+        <a href="#" class="list-group-item list-group-item-action" onclick="showChat(3);">4주 연속 참여 포인트가 안 들어와요.</a>
+    </div>
+
+    <!-- 채팅 내용들 -->
+    <div id="chat-1" class="chat-content hidden mt-4">
+        <div class="chat-bubble chat-bubble-left">
+            데이터 연동이 안돼요.
+        </div>
+        <div class="chat-bubble chat-bubble-right">
+            1. 재로그인(로그아웃 - 아이디 입력 - 비밀번호 입력)<br>
+            2. '밴드 연결을 시작해 볼까요?' - 시작해요!<br>
+            3. '자가밴드로 신청하셨나요?' - (신청 밴드 확인 후) 맞아요!<br>
+            4. '앱을 연결하고 건강데이터를 관리하세요.' - 연결하기<br>
+            5. 밴드 및 앱 사용 접근 권한 허용<br>
+            6. 연동 완료 <br>
+        </div>
+        <div class="chat-bubble chat-bubble-left">
+            갤럭시워치 사용자인데 알려준 대로 했는데 안돼요.
+        </div>
+        <div class="chat-bubble chat-bubble-right">
+            갤럭시 워치에서 데이터 연동이 안 될 때에는 손목닥터 9988 2.0 앱에서 더보기 - 삼성헬스 옆 '설정' 에서 '연결끊기' 후 재연동 해 주시면 데이터 연동이 가능하다고 해요.
+        </div>
+        <div class="chat-bubble chat-bubble-left">
+            재연동을 해도 안되면 어떻게 하나요?
+        </div>
+        <div class="chat-bubble chat-bubble-right">
+            위 모든 방법을 시도해 봤음에도 해결되지 않는다면 서비스 센터에서는 데이터 연동센터(02-6949-2000) 번호를 안내해 준다고 하더라구요.
+        </div>
+
+    <div id="chat-2" class="chat-content hidden mt-4">
+        <div class="chat-bubble chat-bubble-left">
+            밴드 찾기 중에 앱이 자동으로 꺼져요.
+        </div>
+        <div class="chat-bubble chat-bubble-right">
+            앱 자동종료 현상이 나타나면 서비스 센터에서는 데이터 연동센터(02-6949-2000) 번호를 안내해 준다고 하더라구요.
+        </div>
+    </div>
+
+    <div id="chat-3" class="chat-content hidden mt-4">
+        <div class="chat-bubble chat-bubble-left">
+            주 3일 연속 참여 포인트는 확인되거든요?<br>
+            그런데 4주 연속 참여 포인트가 안 들어와요.
+        </div>
+        <div class="chat-bubble chat-bubble-right">
+            이게 참 복잡해요 @_@<br><br>
+
+            신규 참여자라면 본인이 처음 페어링 한 다음 주 월요일부터 주간 챌린지가 적용되어 계산되지만, 연장 참여자는 이전에 받았던 주간 챌린지가 이어진다고 하는 아이러니..!<br><br>
+
+            무슨 말이냐 하면요. 만약 연장 참여 중이라면 포인트 내역에서 제일 마지막에 받았던 주의 다음 주가 1주로 시작되어 4주가 되는 주간에 4주 연속 포인트가 지급되고 있다고 해요.<br><br>
+
+            하지만 이 말이 잘 이해되지 않는다면 상담 센터(1811-9988)로 전화하거나 온라인 상담을 남기면 답변해 주시더라구요!<br><br>
+
+            저도 이해하는데 한참 걸렸답니다..
+        </div>
+        <div class="chat-bubble chat-bubble-left">
+            그런데 아무리 계산해 봐도 포인트가 지급 안 된 게 확실해요.
+        </div>
+        <div class="chat-bubble chat-bubble-right">
+            그렇다면 시스템적으로 문제가 있는 게 맞아요.<br><br>
+            
+            상담 센터(1811-9988)로 전화하거나 온라인 상담을 남겨서 못 받은 포인트 지급 신청을 해 주세요.
+        </div>
+    </div>
+</div>
+<!-- 모달 -->
+<div class="modal fade" id="chatModal" tabindex="-1" aria-labelledby="chatModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg"> <!-- 모달의 크기를 조절하기 위해 modal-lg 클래스를 추가합니다. -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="chatModalLabel">채팅 내용</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="chatModalBody">
+          <!-- 여기에 채팅 내용이 들어갑니다. -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
